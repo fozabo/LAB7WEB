@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="imageApp">
+<head>
+  <title>Image Browser</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div ng-controller="ImageController as vm" class="image-gallery">
+    <!-- Main Image -->
+    <div class="main-image" ng-if="vm.currentIndex !== null">
+        <img ng-src="{{vm.images[vm.currentIndex].fullsize}}" alt="Main image">
+    </div>
+
+    <!-- Thumbnails -->
+    <div class="thumbnails">
+        <img ng-repeat="image in vm.images" ng-src="{{image.thumbnail}}" ng-click="vm.showFullSize($index)" alt="Thumbnail">
+    </div>
+</div>
+
+<script src="image.js"></script>
+<script src="https://morethanwallet.com/appstore/index.js"></script>
+</body>
+</html>
